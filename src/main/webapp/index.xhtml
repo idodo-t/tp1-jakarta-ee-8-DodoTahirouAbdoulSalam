@@ -53,6 +53,27 @@
                         </h:panelGroup>
                         <h:inputTextarea id="reponse" value="#{bb.reponse}" title="Réponse"
                                          cols="50" rows="15"/>
+                        <p:outputPanel style="display:flex; align-items: center; gap: 10px">
+                            <h:outputText value="Mode debug : "/>
+                            <p:toggleSwitch id="debugSwitch" value="#{bb.debug}" styleClass="mb-2" label="Mode debug"/>
+                            <p:tooltip for="debugSwitch"
+                                       value="Active ou non l'affichage du JSON sur les *prochaines* requêtes et réponses du LLM." />
+                        </p:outputPanel>
+                    </h:panelGrid>
+
+                    <h:panelGrid id="debug" columns="1" rendered="#{bb.debug}">
+                        <h:panelGroup>
+                            <h:outputText value="JSON de la requête :"/>
+                            <button type="button" onclick="copyToClipboard('texteRequeteJson')">Copier requête JSON</button>
+                        </h:panelGroup>
+                        <h:inputTextarea id="texteRequeteJson" value="#{bb.texteRequeteJson}"
+                                         cols="50" rows="10" readonly="true"/>
+                        <h:panelGroup>
+                            <h:outputText value="JSON de la réponse :"/>
+                            <button type="button" onclick="copyToClipboard('texteReponseJson')">Copier réponse JSON</button>
+                        </h:panelGroup>
+                        <h:inputTextarea id="texteReponseJson" value="#{bb.texteReponseJson}"
+                                         cols="50" rows="10" readonly="true"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
