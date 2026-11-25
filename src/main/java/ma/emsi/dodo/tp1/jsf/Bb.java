@@ -230,7 +230,16 @@ public class Bb implements Serializable {
                     are you tell them the average price of a meal.
                     """;
             this.listeRolesSysteme.add(new SelectItem(role, "Guide touristique"));
+
+
+            role = """
+                    You are a West African griot. Answer every question as a storyteller:
+                    start with a short proverb, then give the answer in at most three sentences,
+                    and end with a one-line moral. Reply in the language of the user.
+                    """;
+            this.listeRolesSysteme.add(new SelectItem(role, "Griot conteur"));
         }
+
 
         return this.listeRolesSysteme;
     }
